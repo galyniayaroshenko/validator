@@ -1,0 +1,15 @@
+{
+  "dbUrlMLab": "mongodb://admin:admin@ds013340.mlab.com:13340/aa",
+  "dbUrl": "mongodb://localhost:27017/Mydb",
+  "port": "8080",
+  "secret": "~W@(|7!N! Cv+wo<D].Hcg]%?nVe#![++lUeH![6pVQrjhMp/-bf^dhTw3B~I5Xh",
+  "redis": {
+    "port": "6379",
+    "url": "localhost",
+    "expire": "20",
+    "secret": "~W@(|7!N! Cv+wo<D].Hcg]%?nVe#![++lUeH![6pVQrjhMp/-bf^dhTw3B~I5Xh"
+  },
+  "cookie": {
+    "maxAge": 20000
+  }
+}
