@@ -52,11 +52,7 @@ import { FormValidator } from './app/modules/validator';
 var data = {
   num: 23,
   str: '',
-  name: 'asd',
-  obj: {
-    num: 1,
-    str: 'abc',
-  }
+  name: 'asd'
 }
 
 let fv;
@@ -64,7 +60,7 @@ let fv;
 if (!fv) {
   fv  = new FormValidator();
 
-  fv.field('nuwm').required().type(Number).testAsync();
+  fv.field('num').required().type(Number).testAsync();
   fv.field('str').required().type(Number);
   fv.field('name').required().type(String);
 }
@@ -76,8 +72,6 @@ fv.validate(data)
   .catch(error => {
     console.log(error);
   });
-
-// fv.formatErrors();
 
 // fv.validate(fields)
 //   .then(function(validationError) {

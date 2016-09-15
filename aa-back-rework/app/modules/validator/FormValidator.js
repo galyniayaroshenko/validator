@@ -28,11 +28,28 @@ class FormValidator {
     return this._fields[name] = new FormField(name);
   }
 
+
+
   /**
    * ???
    */
   validate(data) {
     let promises = [];
+
+    let dataKeys = Object.keys(data);
+    let fieldsKeys = Object.keys(this._fields);
+
+    Array.prototype.diff = function(fieldsKeys) {
+      return this.filter(function(dataKeys){
+        return fieldsKeys.indexOf(dataKeys) < 0;
+      });
+    };
+
+    let unexpectedFields = dataKeys.diff(fieldsKeys);
+
+    if (unexpectedFields.length) {
+      throw new Error(`Unexpected fields [${unexpectedFields}]`)
+    }
 
     for (let fieldName in this._fields) {
       let field = this._fields[fieldName];
@@ -46,13 +63,13 @@ class FormValidator {
 
         data.forEach(fieldResult => {
           if (fieldResult && fieldResult.message) {
-            result[fieldResult.field] = fieldResult.message; 
+            result[fieldResult.field] = fieldResult.message;
           }
-        }); 
+        });
 
         if (Object.keys(result).length) {
           return result;
-        }        
+        }
       });
   }
 };
